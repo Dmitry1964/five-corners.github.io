@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Описание проекта">
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=7b566516-0aa0-403a-884a-02acfe5c23eb&lang=ru_RU"
+    type="text/javascript"></script>
+  <title>ProjectName</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__wrapper container">
+      <nav class="navigation">
+        <h2 class="visually-hidden">Навигация по сайту и информация пользователя</h2>
+        <div class="site-navigation">
+          <ul class="site-navigation__list">
+            <li class="site-navigation__item">
+              <a class="site-navigation__link link" href="#">Каталог</a>
+            </li>
+            <li class="site-navigation__item">
+              <a class="site-navigation__link link" href="#">О компании</a>
+            </li>
+            <li class="site-navigation__item">
+              <a class="site-navigation__link link" href="#">Магазины</a>
+            </li>
+          </ul>
+        </div>
+        <img class="navigation__logo" src="img/svg/logo.svg" width="100" height="22" alt="Логотип интернет-магазина">
+        <div class="user-navigation">
+          <ul class="user-navigation__list">
+            <li class="user-navigation__item" data-item="search">
+              <a class="user-navigation__link" href="#">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.6031 13.6031L17.2857 17.2857" stroke="currentColor" stroke-linejoin="round" />
+                  <path
+                    d="M15.4443 8.07933C15.4443 12.147 12.1469 15.4444 8.07927 15.4444C4.01167 15.4444 0.714233 12.147 0.714233 8.07933C0.714233 4.01173 4.01167 0.714294 8.07927 0.714294C12.1469 0.714294 15.4443 4.01173 15.4443 8.07933Z"
+                    stroke="currentColor" />
+                </svg>
+              </a>
+            </li>
+            <li class="user-navigation__item" data-item="account">
+              <a class="user-navigation__link" href="#">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M15.8062 7.52C15.8062 10.7586 13.1822 13.3263 9.92902 13.3263C6.67585 13.3263 4.05188 10.7586 4.05188 7.52C4.05188 4.27414 6.68317 1.64285 9.92902 1.64285C13.1749 1.64285 15.8062 4.27414 15.8062 7.52Z"
+                    stroke="currentColor" />
+                  <path d="M1.14282 19.0743V19.0743C4.96511 12.061 15.0348 12.061 18.8571 19.0743V19.0743"
+                    stroke="currentColor" />
+                </svg>
+              </a>
+            </li>
+            <li class="user-navigation__item" data-item="favorite" data-value="8">
+              <a class="user-navigation__link" href="#">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M16.9088 10.8218L10.0076 17.7143L3.10643 10.8218C2.65123 10.3751 2.29268 9.83821 2.05335 9.24492C1.81402 8.65163 1.6991 8.0148 1.71583 7.37453C1.73255 6.73426 1.88056 6.10441 2.15053 5.52465C2.4205 4.94489 2.80658 4.42778 3.28447 4.00589C3.76235 3.58399 4.32169 3.26644 4.92725 3.07325C5.53281 2.88005 6.17148 2.81538 6.80304 2.88332C7.43461 2.95126 8.04538 3.15033 8.5969 3.468C9.14842 3.78567 9.62874 4.21506 10.0076 4.72912C10.3881 4.21879 10.869 3.79316 11.4202 3.47886C11.9713 3.16456 12.5808 2.96836 13.2106 2.90255C13.8404 2.83673 14.4769 2.90271 15.0802 3.09636C15.6836 3.29001 16.2408 3.60716 16.717 4.02796C17.1932 4.44876 17.5782 4.96414 17.8478 5.54187C18.1174 6.11959 18.2658 6.74722 18.2838 7.38546C18.3018 8.0237 18.189 8.65881 17.9524 9.25106C17.7158 9.8433 17.3605 10.3799 16.9088 10.8273"
+                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </li>
+            <li class="user-navigation__item" data-item="bag" data-value="4">
+              <a class="user-navigation__link" href="#">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M17.4184 6.33966V5.83966C17.2723 5.83966 17.1336 5.9035 17.0386 6.0144C16.9436 6.12531 16.9018 6.2722 16.9243 6.41649L17.4184 6.33966ZM18.8334 15.4386L19.3274 15.3618L19.3274 15.3617L18.8334 15.4386ZM16.8156 17.7679V18.2679H16.816L16.8156 17.7679ZM3.18642 17.7679V17.2679H3.18636L3.18642 17.7679ZM1.16657 15.4386L0.672504 15.3617L0.672496 15.3618L1.16657 15.4386ZM2.58159 6.33966L3.07565 6.41649L3.07565 6.41644L2.58159 6.33966ZM4.60246 4.62502L4.60215 5.12502H4.60246V4.62502ZM15.3995 4.62502V5.12502H15.3996L15.3995 4.62502ZM17.4194 6.33966V6.83966C17.5654 6.83966 17.7041 6.77583 17.7991 6.66494C17.8941 6.55404 17.9359 6.40716 17.9134 6.26288L17.4194 6.33966ZM16.9243 6.41649L18.3393 15.5154L19.3274 15.3617L17.9124 6.26283L16.9243 6.41649ZM18.3393 15.5153C18.3729 15.7314 18.3589 15.952 18.2982 16.1623L19.2591 16.4394C19.36 16.0894 19.3834 15.7217 19.3274 15.3618L18.3393 15.5153ZM18.2982 16.1623C18.2376 16.3726 18.1316 16.5678 17.9872 16.7345L18.7431 17.3892C18.982 17.1135 19.1581 16.7895 19.2591 16.4394L18.2982 16.1623ZM17.9872 16.7345C17.8428 16.9011 17.6634 17.0353 17.4611 17.1275L17.8757 18.0375C18.2082 17.886 18.5042 17.665 18.7431 17.3892L17.9872 16.7345ZM17.4611 17.1275C17.2587 17.2198 17.0383 17.2677 16.8151 17.2679L16.816 18.2679C17.1817 18.2676 17.5431 18.1891 17.8757 18.0375L17.4611 17.1275ZM16.8156 17.2679H3.18642V18.2679H16.8156V17.2679ZM3.18636 17.2679C2.96303 17.2679 2.74249 17.2201 2.53992 17.128L2.12598 18.0383C2.45882 18.1897 2.82057 18.2679 3.18648 18.2679L3.18636 17.2679ZM2.53992 17.128C2.33737 17.0359 2.15777 16.9017 2.01321 16.735L1.2577 17.3902C1.49686 17.666 1.79313 17.887 2.12598 18.0383L2.53992 17.128ZM2.01321 16.735C1.86867 16.5684 1.76256 16.3731 1.70181 16.1627L0.741055 16.4401C0.842176 16.7903 1.01853 17.1144 1.2577 17.3902L2.01321 16.735ZM1.70181 16.1627C1.64107 15.9523 1.62704 15.7315 1.66063 15.5153L0.672496 15.3618C0.616523 15.7219 0.639931 16.0898 0.741055 16.4401L1.70181 16.1627ZM1.66063 15.5154L3.07565 6.41649L2.08752 6.26283L0.672504 15.3617L1.66063 15.5154ZM3.07565 6.41644C3.13132 6.05829 3.31491 5.7306 3.59462 5.49328L2.94766 4.73076C2.48595 5.1225 2.18031 5.66583 2.08752 6.26288L3.07565 6.41644ZM3.59462 5.49328C3.87446 5.25585 4.23185 5.1248 4.60215 5.12502L4.60277 4.12502C3.99642 4.12465 3.40924 4.33912 2.94766 4.73076L3.59462 5.49328ZM4.60246 5.12502H15.3995V4.12502H4.60246V5.12502ZM15.3996 5.12502C15.7698 5.12498 16.127 5.25611 16.4066 5.49353L17.0538 4.73117C16.5925 4.33956 16.0056 4.12495 15.3995 4.12502L15.3996 5.12502ZM16.4066 5.49353C16.6862 5.73084 16.8697 6.05842 16.9253 6.41644L17.9134 6.26288C17.8207 5.66604 17.5152 5.12289 17.0538 4.73117L16.4066 5.49353ZM17.4194 5.83966H17.4184V6.83966H17.4194V5.83966ZM7.35168 4.69854C7.59863 3.03718 8.89729 2.2125 10.2467 2.2143C11.5989 2.2161 12.9298 3.0494 13.2218 4.71153L14.2067 4.53851C13.8184 2.32796 12.0098 1.21664 10.248 1.2143C8.48347 1.21195 6.69372 2.32361 6.36254 4.55151L7.35168 4.69854Z"
+                    fill="currentColor" />
+                </svg>
+              </a>
+            </li>
+            <li class="user-navigation__item" data-item="burger-menu">
+              <button>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line y1="13.25" x2="32" y2="13.25" stroke="currentColor" stroke-width="1.5" />
+                  <line x1="14" y1="22.25" x2="32" y2="22.25" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main class="page-main">
+    <div class="page-main__wrapper container">
+      <!-- <div class="page-main__broadcrumbs"> -->
+      <ul class="page-main__broadcrumbs-list">
+        <li class="page-main__broadcrumbs-item">
+          <a href="#">Главная</a>
+        </li>
+        <li class="page-main__broadcrumbs-item page-main__broadcrumbs-item--current">
+          <span>Оформление заказа</span>
+        </li>
+      </ul>
+      <!-- </div> -->
+      <section class="product">
+        <h2 class="visually-hidden">выбранный товар</h2>
+        <section class="product__info">
+          <div class="product__info-title">
+            <h2>Оформление заказа</h2>
+            <div class="product__info-links">
+              <a href="#">Есть аккаунт?</a>
+              <a href="#">Войти</a>
+            </div>
+          </div>
+          <p class="product__info-result"><span data-info="quantity-total">2</span> товара на сумму <span
+              class="product__total-price">25 000</span> <span>&#8381;</span>
+          </p>
+          <div class="product__list">
+            <article class="card" data-price-new="10000" data-price-old="12000" data-select="product-selected">
+              <div class="card__info">
+                <img class="card__image" src="img/photo1.jpg" srcset="img/photo1-1.jpg 2x" alt="Куртка женская">
+                <h3 class="card__title">
+                  Утепленная <br class="card__title-breake">стеганная куртка женская Top Hills
+                </h3>
+                <div class="card__param">
+                  <p class="card__article">Артикул <span>512-05</span></p>
+                  <p class="card__season">Сезон <span>Осень-зима</span></p>
+                  <ul class="card__size-list">
+                    <li class="card__size-item">xs</li>
+                    <li class="card__size-item">s</li>
+                    <li class="card__size-item card__size-item--current">m</li>
+                    <li class="card__size-item">l</li>
+                    <li class="card__size-item">xl</li>
+                  </ul>
+                  <ul class="card__color-list">
+                    <li class="card__color-item card__color-item--current" data-color="color-charcoal"></li>
+                    <li class="card__color-item" data-color="color-cerulean"></li>
+                    <li class="card__color-item" data-color="color-golden-brown"></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card__cost">
+                <div class="card__price-single">
+                  <div class="card__price-old">12&nbsp;000 <span>&#8381;</span></div>
+                  <div class="card__price-new">10&nbsp;000 <span>&#8381;</span></div>
+                </div>
+                <div class="card__quantity">
+                  <button class="card__button card__button--minus card__button--disable">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                  <div class="card__count">1</div>
+                  <button class="card__button card__button--plus">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path d="M16 10L16 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="card__price-total">
+                  <div class="card__price-old">12&nbsp;000 <span>&#8381;</span></div>
+                  <div class="card__price-new" data-info="card-price"><span>10&nbsp;000</span> <span>&#8381;</span>
+                  </div>
+                </div>
+              </div>
+              <button class="card__button-delete">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.5 4.5L4.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                  <path d="M4.5 4.5L17.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </button>
+              <div class="card__zero">
+                <p>Товар <span>Наименование товара</span> был удален из корзины.</p>
+                <a class="card__zero-link" href="#">Восстановить</a>
+                <button class="card__zero-button">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.5 4.5L4.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M4.5 4.5L17.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <article class="card card--delete" data-price-new="10000" data-price-old="12000">
+              <div class="card__info">
+                <img class="card__image" src="img/photo1.jpg" srcset="img/photo1-1.jpg 2x" alt="Куртка женская">
+                <h3 class="card__title">
+                  Утепленная<br>стеганная куртка женская Top Hills
+                </h3>
+                <div class="card__param">
+                  <p class="card__article">Артикул <span>512-05</span></p>
+                  <p class="card__season">Сезон <span>Осень-зима</span></p>
+                  <ul class="card__size-list">
+                    <li class="card__size-item">xs</li>
+                    <li class="card__size-item">s</li>
+                    <li class="card__size-item card__size-item--current">m</li>
+                    <li class="card__size-item">l</li>
+                    <li class="card__size-item">xl</li>
+                  </ul>
+                  <ul class="card__color-list">
+                    <li class="card__color-item card__color-item--current" data-color="color-charcoal"></li>
+                    <li class="card__color-item" data-color="color-cerulean"></li>
+                    <li class="card__color-item" data-color="color-golden-brown"></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card__cost">
+                <div class="card__price-single">
+                  <div class="card__price-old">12&nbsp;000 <span>&#8381;</span></div>
+                  <div class="card__price-new">10&nbsp;000 <span>&#8381;</span></div>
+                </div>
+                <div class="card__quantity">
+                  <button class="card__button card__button--minus card__button--disable">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                  <div class="card__count">1</div>
+                  <button class="card__button card__button--plus">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path d="M16 10L16 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="card__price-total">
+                  <div class="card__price-old">12&nbsp;000 <span>&#8381;</span></div>
+                  <div class="card__price-new" data-info="card-price"><span>10&nbsp;000</span>
+                    <span>&#8381;</span>
+                  </div>
+                </div>
+              </div>
+              <button class="card__button-delete">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.5 4.5L4.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                  <path d="M4.5 4.5L17.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </button>
+              <div class="card__zero">
+                <p>Товар <span>Наименование товара</span> был удален из корзины.</p>
+                <a class="card__zero-link" href="#">Восстановить</a>
+                <button class="card__zero-button">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.5 4.5L4.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M4.5 4.5L17.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                  </svg>
+                </button>
+              </div>
+            </article>
+            <article class="card" data-price-new="500" data-price-old="0" data-select="product-selected">
+              <div class="card__info">
+                <h3 class="card__title">
+                  Вязанная шапка Zolla
+                </h3>
+                <img class="card__image" src="img/photo2-1.jpg" srcset="img/photo2.jpg 2x" alt="Куртка женская">
+                <div class="card__param">
+                  <p class="card__article">Артикул <span>891-256</span></p>
+                  <p class="card__season">Сезон <span>Демисезон</span></p>
+                  <ul class="card__size-list">
+                    <li class="card__size-item">xs</li>
+                    <li class="card__size-item card__size-item--current">s</li>
+                    <li class="card__size-item">m</li>
+                    <li class="card__size-item card__size-item--disable">l</li>
+                    <li class="card__size-item  card__size-item--disable">xl</li>
+                  </ul>
+                  <ul class="card__color-list">
+                    <li class="card__color-item card__color-item--current" data-color="color-charcoal"></li>
+                    <li class="card__color-item card__color-item--disable" data-color="color-cerulean"></li>
+                    <li class="card__color-item card__color-item--disable" data-color="color-golden-brown"></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card__cost">
+                <div class="card__price-single">
+                  <div class="card__price-old card__price-old--disable">12&nbsp;000 <span>&#8381;</span></div>
+                  <div class="card__price-new">500 <span>&#8381;</span></div>
+                </div>
+                <div class="card__quantity">
+                  <button class="card__button card__button--minus card__button--disable">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                  <div class="card__count">1</div>
+                  <button class="card__button card__button--plus">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path d="M16 10L16 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="card__price-total">
+                  <div class="card__price-old"><span></span></div>
+                  <div class="card__price-new" data-info="card-price"><span>500</span> <span>&#8381;</span>
+                  </div>
+                </div>
+              </div>
+              <button class="card__button-delete">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.5 4.5L4.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                  <path d="M4.5 4.5L17.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </button>
+              <div class="card__zero">
+                <p>Товар <span>Наименование товара</span> был удален из корзины.</p>
+                <a class="card__zero-link" href="#">Восстановить</a>
+                <button class="card__zero-button">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.5 4.5L4.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M4.5 4.5L17.5 17.5" stroke="currentColor" stroke-width="1.5" />
+                  </svg>
+                </button>
+              </div>
+            </article>
+          </div>
+        </section>
+        <aside class="order">
+          <div class="order__wrapper">
+            <dl class="order__list">
+              <dt data-info="products">Товары</dt>
+              <dd data-info="total-price"><span class="product__total-price">24&nbsp;000</span> &#8381;</dd>
+
+              <dt data-info="discount">Скидка</dt>
+              <dd data-info="total-discount">-4&nbsp;000 <span>&#8381;</span></dd>
+
+
+              <dt data-info="promo">Акции</dt>
+              <dd data-info="total-promo">-4&nbsp;000 <span>&#8381;</span></dd>
+
+              <dt data-info="code">Промокод</dt>
+              <dd data-info="total-code">-500 <span>&#8381;</span></dd>
+              <dt data-info="delivery">Доставка</dt>
+              <dd data-info="total-delivery">200 <span>&#8381;</span></dd>
+            </dl>
+            <div class="order__place">
+              <input class="order__place-input visually-hidden" type="checkbox" name="from-store" id="fromstore"
+                checked>
+              <label for="fromstore">Получить товар со склада</label>
+              <p>Сроки получения могут измениться</p>
+            </div>
+            <div class="order__total">
+              <h3>Итого:</h3>
+              <p class="order__value"><span class="order__price">24 000</span> <span>&#8381;</span></p>
+            </div>
+            <input class="order__code" type="text" name="promocode" id="promocode" placeholder="Введите промокод">
+            <button class="order__button" type="submit">Оформить заказ</button>
+            <p class="order__prim">Нажимая кнопку “Оформить заказ”, Вы&nbsp;соглашаетесь с <a href="#">политикой
+                конфиденциальности</a>.</p>
+          </div>
+        </aside>
+        <section class="contact">
+          <form class="contact__form" action="#">
+            <h2 class="contact__title">Контактные данные</h2>
+            <div class="contact__user">
+              <fieldset>
+                <legend>Имя</legend>
+                <input type="text" name="first-name" id="first-name" placeholder="Имя" required value="Александр">
+              </fieldset>
+              <fieldset>
+                <input type="text" name="second-name" id="second-name" placeholder="Фамилия" required>
+              </fieldset>
+              <fieldset>
+                <input type="tel" name="phone" id="phone" placeholder="Телефон" required>
+              </fieldset>
+              <fieldset>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+              </fieldset>
+              <fieldset>
+                <legend>Адрес доставки</legend>
+                <input type="text" name="address" id="address" required>
+                <button id="contact__search-btn" type="button">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.6031 13.6031L17.2857 17.2857" stroke="currentColor" stroke-linejoin="round" />
+                    <path
+                      d="M15.4443 8.07933C15.4443 12.147 12.1469 15.4444 8.07927 15.4444C4.01167 15.4444 0.714233 12.147 0.714233 8.07933C0.714233 4.01173 4.01167 0.714294 8.07927 0.714294C12.1469 0.714294 15.4443 4.01173 15.4443 8.07933Z"
+                      stroke="currentColor" />
+                  </svg>
+                </button>
+              </fieldset>
+            </div>
+          </form>
+          <div class="map">
+            <div class="map__item" id="map"></div>
+          </div>
+
+          <form>
+            <div class="contact__delivery">
+              <h3>Оплата</h3>
+              <ul class="contact__pay-list">
+                <li class="contact__pay-item">
+                  <input class="contact__pay-input visually-hidden" type="radio" name="paymethod" id="cache"
+                    value="cache">
+                  <label for="cache">Наличными курьеру</label>
+                </li>
+                <li class="contact__pay-item">
+                  <input class="contact__pay-input visually-hidden" type="radio" name="paymethod" id="card"
+                    value="card">
+                  <label for="card">Картой курьеру</label>
+                </li>
+                <li class="contact__pay-item">
+                  <input class="contact__pay-input visually-hidden" type="radio" name="paymethod" id="card-online"
+                    value="cardonline" checked>
+                  <label for="card-online">Картой онлайн</label>
+                </li>
+              </ul>
+            </div>
+            <div class="contact__comment">
+              <h3>Комментарий к заказу</h3>
+              <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
+            </div>
+            <p class="contact__comment-length">Использовано <span>0</span>/142 символов</p>
+          </form>
+        </section>
+
+      </section>
+
+    </div>
+  </main>
+
+  <template id="error">
+    <div class="popup">
+      <div class="popup__wrapper">
+        <img src="img/svg/send.svg" width="200" height="75" alt="Сообщение">
+      </div>
+    </div>
+  </template>
+
+  <template id="orderError">
+    <div class="popup popup--order">
+      <p>Заполните контактные данные</p>
+    </div>
+  </template>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
